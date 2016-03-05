@@ -6,13 +6,19 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class dialogueScript : MonoBehaviour
 {
     public GameObject interactButton;
-    public GameObject questionButtons;
+    public GameObject playerButtons;
+    public GameObject npcDialogue;
     
     //dialogue options
+    public Text npcName; 
+    //npc dialogue
+    public Text dialogue1;
+ 
+    //questions
     public Text Option1;
     public Text Option2;
     public Text Option3;
-    public Text npcName; 
+
 
 
     private bool isInteracting = false;
@@ -29,6 +35,47 @@ public class dialogueScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            if (dialogue1.text == npc.dialogueIntro)
+            {
+                npcDialogue.SetActive(false);
+
+                Invoke("askQuestions", 0);
+
+            }
+            else if (dialogue1.text == npc.weAlreadyTalkedBro)
+            {
+                playerController.m_WalkSpeed = 5;
+                playerController.m_MouseLook.XSensitivity = 2;
+                playerController.m_MouseLook.YSensitivity = 2;
+                npcDialogue.SetActive(false);
+                Cursor.visible = false;
+            }
+            else if (dialogue1.text == npc.explain1)
+            {
+                npcDialogue.SetActive(false);
+                playerButtons.SetActive(true);
+            }
+
+            else if (dialogue1.text == npc.dialogueOutro)
+            {
+                playerController.m_WalkSpeed = 5;
+                playerController.m_MouseLook.XSensitivity = 2;
+                playerController.m_MouseLook.YSensitivity = 2;
+                npcDialogue.SetActive(false);
+                Cursor.visible = false;
+            }
+
+            else if (dialogue1.text == npc.isGivenItem)
+            {
+                if (npc.gameObject.name == "Driver")
+                {
+                    Invoke("exitDialogue", 0);
+                }
+            }
+ 
+        }
 	
 	}
 
@@ -48,7 +95,7 @@ public class dialogueScript : MonoBehaviour
     {
         if (other.gameObject.tag == "NPC")
         {
-            questionButtons.SetActive(false);
+            playerButtons.SetActive(false);
             interactButton.SetActive(false);
             isInteracting = false; 
         }
@@ -60,23 +107,75 @@ public class dialogueScript : MonoBehaviour
         {
             isInteracting = true; 
             interactButton.SetActive(false);
-            Invoke("askQuestions", 0);
+            Invoke("npcResponse", 0); 
         }
+    }
+
+    void npcResponse()
+    {
+        playerController.m_WalkSpeed = 0;
+        playerController.m_MouseLook.XSensitivity = 0;
+        playerController.m_MouseLook.YSensitivity = 0;
+        npcDialogue.SetActive(true);
+        Cursor.visible = true;
+
+        if (npc.hasTalked == false)
+        {
+            dialogue1.text = npc.dialogueIntro;
+        }
+
+        else if (npc.hasTalked == true)
+        {
+            dialogue1.text = npc.weAlreadyTalkedBro;
+        }    
     }
 
     void askQuestions()
     {
-        Option1.text = npc.dialogueOption1;
-        Option2.text = npc.dialogueOption2;
-        Option3.text = npc.dialogueOption3;
-        
-        
-
-        playerController.m_WalkSpeed = 0;
-        playerController.m_MouseLook.XSensitivity = 0;
-        playerController.m_MouseLook.YSensitivity = 0; 
-        questionButtons.SetActive(true);
-        Cursor.visible = true;
+        playerButtons.SetActive(true);
+        Option1.text = npc.playerOption1;
+        Option2.text = npc.playerOption2;
+        Option3.text = npc.playerOption3; 
     }
+
+    public void explain()
+    {
+        npcDialogue.SetActive(true);
+        playerButtons.SetActive(false);
+
+        dialogue1.text = npc.explain1;
+    }
+
+    public void yesOrNo()
+    {
+ 
+    }
+
+   public void giveItem()
+    {
+        if (npc.canGiveItem == true)
+        {
+            playerButtons.SetActive(false);
+            
+            dialogue1.text = npc.isGivenItem;
+           
+            npcDialogue.SetActive(true);
+        }
+
+        else if (npc.canGiveItem == false)
+        {
+            playerButtons.SetActive(false);
+
+            dialogue1.text = npc.alreadyHasItem;
+
+            npcDialogue.SetActive(true);
+        }
+    }
+
+   void exitDialogue()
+   {
+       dialogue1.text = npc.dialogueOutro;
+       npc.hasTalked = true; 
+   }
 
 }

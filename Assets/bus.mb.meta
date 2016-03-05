@@ -1,0 +1,179 @@
+fileFormatVersion: 2
+guid: 2b036e0da8078ed498c13ff8a503f2dd
+timeCreated: 1457201460
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: bus
+    100004: busFloor
+    100006: drivingWheel
+    100008: drivingWheelAxis
+    100010: seat
+    100012: seat 1
+    100014: seat 2
+    100016: seat 3
+    100018: seat1
+    100020: seat1 1
+    100022: seat1 2
+    100024: seat1 3
+    100026: seat2
+    100028: seat2 1
+    100030: seat2 2
+    100032: seat2 3
+    100034: seat3
+    100036: seat3 1
+    100038: seat3 2
+    100040: seat3 3
+    100042: seatsLeft
+    100044: seatsLeft1
+    100046: seatsRight
+    100048: seatsRight1
+    400000: bus
+    400002: //RootNode
+    400004: busFloor
+    400006: drivingWheel
+    400008: drivingWheelAxis
+    400010: seat
+    400012: seat 1
+    400014: seat 2
+    400016: seat 3
+    400018: seat1
+    400020: seat1 1
+    400022: seat1 2
+    400024: seat1 3
+    400026: seat2
+    400028: seat2 1
+    400030: seat2 2
+    400032: seat2 3
+    400034: seat3
+    400036: seat3 1
+    400038: seat3 2
+    400040: seat3 3
+    400042: seatsLeft
+    400044: seatsLeft1
+    400046: seatsRight
+    400048: seatsRight1
+    2300000: busFloor
+    2300002: drivingWheel
+    2300004: drivingWheelAxis
+    2300006: seat
+    2300008: seat 1
+    2300010: seat 2
+    2300012: seat 3
+    2300014: seat1
+    2300016: seat1 1
+    2300018: seat1 2
+    2300020: seat1 3
+    2300022: seat2
+    2300024: seat2 1
+    2300026: seat2 2
+    2300028: seat2 3
+    2300030: seat3
+    2300032: seat3 1
+    2300034: seat3 2
+    2300036: seat3 3
+    3300000: busFloor
+    3300002: drivingWheel
+    3300004: drivingWheelAxis
+    3300006: seat
+    3300008: seat 1
+    3300010: seat 2
+    3300012: seat 3
+    3300014: seat1
+    3300016: seat1 1
+    3300018: seat1 2
+    3300020: seat1 3
+    3300022: seat2
+    3300024: seat2 1
+    3300026: seat2 2
+    3300028: seat2 3
+    3300030: seat3
+    3300032: seat3 1
+    3300034: seat3 2
+    3300036: seat3 3
+    4300000: busFloor
+    4300002: drivingWheel
+    4300004: drivingWheelAxis
+    4300006: seat
+    4300008: seat1
+    4300010: seat2
+    4300012: seat3
+    4300014: seat
+    4300016: seat1
+    4300018: seat2
+    4300020: seat3
+    4300022: seat
+    4300024: seat1
+    4300026: seat2
+    4300028: seat3
+    4300030: seat
+    4300032: seat1
+    4300034: seat2
+    4300036: seat3
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
