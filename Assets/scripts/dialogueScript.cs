@@ -8,6 +8,8 @@ public class dialogueScript : MonoBehaviour
     public GameObject interactButton;
     public GameObject playerButtons;
     public GameObject npcDialogue;
+
+    public int dialoguePhase;
     
     //dialogue options
     public Text npcName; 
@@ -19,11 +21,13 @@ public class dialogueScript : MonoBehaviour
     public Text Option2;
     public Text Option3;
 
-
-
     private bool isInteracting = false;
     public FirstPersonController playerController;
-    public npcDialogueOptions npc; 
+    public npcDialogueOptions npc;
+
+    //Money and invetory
+    public int cashMoney;
+    public Text moneyCash; 
 
 	// Use this for initialization
 	void Start ()
@@ -35,6 +39,9 @@ public class dialogueScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        //$$$$
+        moneyCash.text = "$" + cashMoney;
+
         if (Input.GetKeyDown("space"))
         {
             if (dialogue1.text == npc.dialogueIntro)
@@ -52,7 +59,7 @@ public class dialogueScript : MonoBehaviour
                 npcDialogue.SetActive(false);
                 Cursor.visible = false;
             }
-            else if (dialogue1.text == npc.explain1)
+            else if (dialogue1.text == npc.explain1 || dialogue1.text == npc.explain2 || dialogue1.text == npc.explain3)
             {
                 npcDialogue.SetActive(false);
                 playerButtons.SetActive(true);
@@ -69,10 +76,15 @@ public class dialogueScript : MonoBehaviour
 
             else if (dialogue1.text == npc.isGivenItem)
             {
-                if (npc.gameObject.name == "Driver")
+                if (npc.characterName =="Bus Driver")
                 {
                     Invoke("exitDialogue", 0);
                 }
+            }
+
+            else if (dialoguePhase == npc.totalDialoguePhases && npc.characterName != "Bus Driver")
+            {
+                Invoke("exitDialogue", 0);
             }
  
         }
@@ -83,7 +95,7 @@ public class dialogueScript : MonoBehaviour
     {
         if (other.gameObject.tag == "NPC" && isInteracting == false)
         {
-            npc = other.gameObject.GetComponent<npcDialogueOptions>(); 
+            npc = other.gameObject.GetComponent<npcDialogueOptions>();
             Invoke("startInteraction", 0);
             
             interactButton.SetActive(true);
@@ -132,6 +144,7 @@ public class dialogueScript : MonoBehaviour
 
     void askQuestions()
     {
+        dialoguePhase = 1; 
         playerButtons.SetActive(true);
         Option1.text = npc.playerOption1;
         Option2.text = npc.playerOption2;
@@ -142,14 +155,25 @@ public class dialogueScript : MonoBehaviour
     {
         npcDialogue.SetActive(true);
         playerButtons.SetActive(false);
+        if (dialoguePhase == 1)
+        {
+            dialogue1.text = npc.explain1;
+            dialoguePhase += 1; 
+        }
 
-        dialogue1.text = npc.explain1;
+        else if (dialoguePhase == 2)
+        {
+            dialogue1.text = npc.explain2;
+            dialoguePhase += 1; 
+        }
+        else if (dialoguePhase == 3)
+        {
+            dialogue1.text = npc.explain3;
+            dialoguePhase += 1;
+        }
+        
     }
 
-    public void yesOrNo()
-    {
- 
-    }
 
    public void giveItem()
     {
@@ -160,6 +184,11 @@ public class dialogueScript : MonoBehaviour
             dialogue1.text = npc.isGivenItem;
            
             npcDialogue.SetActive(true);
+
+            if (npc.characterName == "Bus Driver")
+            {
+                cashMoney -= 2; 
+            }
         }
 
         else if (npc.canGiveItem == false)
@@ -174,6 +203,8 @@ public class dialogueScript : MonoBehaviour
 
    void exitDialogue()
    {
+       npcDialogue.SetActive(true);
+       playerButtons.SetActive(false);
        dialogue1.text = npc.dialogueOutro;
        npc.hasTalked = true; 
    }

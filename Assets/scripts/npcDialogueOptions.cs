@@ -15,16 +15,18 @@ public class npcDialogueOptions : MonoBehaviour
 
     //explain responses
     public string explain1;
-
-    //YesOrNo responses
-    public string yesOrNo1;
+    public string explain2;
+    public string explain3;
+    public string explain4;
 
     //Give Item Responses
     public string isGivenItem;
     public string alreadyHasItem;
 
     public bool canGiveItem;
-    public bool hasTalked = false;  
+    public bool hasTalked = false;
+
+    public int totalDialoguePhases; 
 
 	// Use this for initialization
 	void Start () 
