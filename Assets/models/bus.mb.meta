@@ -30,6 +30,11 @@ ModelImporter:
     100044: seatsLeft1
     100046: seatsRight
     100048: seatsRight1
+    100050: pCube1
+    100052: pCube2
+    100054: pCube3
+    100056: pCube4
+    100058: seats
     400000: bus
     400002: //RootNode
     400004: busFloor
@@ -55,6 +60,11 @@ ModelImporter:
     400044: seatsLeft1
     400046: seatsRight
     400048: seatsRight1
+    400050: pCube1
+    400052: pCube2
+    400054: pCube3
+    400056: pCube4
+    400058: seats
     2300000: busFloor
     2300002: drivingWheel
     2300004: drivingWheelAxis
@@ -74,6 +84,10 @@ ModelImporter:
     2300032: seat3 1
     2300034: seat3 2
     2300036: seat3 3
+    2300038: pCube1
+    2300040: pCube2
+    2300042: pCube3
+    2300044: pCube4
     3300000: busFloor
     3300002: drivingWheel
     3300004: drivingWheelAxis
@@ -93,6 +107,10 @@ ModelImporter:
     3300032: seat3 1
     3300034: seat3 2
     3300036: seat3 3
+    3300038: pCube1
+    3300040: pCube2
+    3300042: pCube3
+    3300044: pCube4
     4300000: busFloor
     4300002: drivingWheel
     4300004: drivingWheelAxis
@@ -112,6 +130,10 @@ ModelImporter:
     4300032: seat1
     4300034: seat2
     4300036: seat3
+    4300038: pCube1
+    4300040: pCube2
+    4300042: pCube3
+    4300044: pCube4
     9500000: //RootNode
   materials:
     importMaterials: 1
