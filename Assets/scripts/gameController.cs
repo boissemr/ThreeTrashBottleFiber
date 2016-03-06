@@ -1,49 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor.SceneManagement; 
+using UnityEditor.SceneManagement;
 
-public class gameController : MonoBehaviour
-{
-    public dialogueScript dialoguescript;
-
-    public int day = 0;
-
-    public float timeToStop;
-
-    public bool dayStarted = false; 
-
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject); 
-    }
-	// Use this for initialization
-	void Start () 
-    {
-        dialoguescript = GameObject.FindGameObjectWithTag("Player").GetComponent<dialogueScript>(); 
-	}
+public class gameController : MonoBehaviour {
 	
-	// Update is called once per frame
-	void Update () 
-    {
+	public dialogueScript dialoguescript;
 
-        if (dayStarted == false)
-        {
-            day = day + 1; 
-            dayStarted = true; 
-        }
-        else if(dayStarted == true)
-        {
-            timeToStop -= Time.deltaTime;
-        }
+	public int day = 0;
 
-        if (timeToStop <= 0)
-        {
-            Invoke("endDay", 0);
-        }
+	public float timeToStop;
+
+	public bool dayStarted = false;
+
+	void Awake() {
+		DontDestroyOnLoad(this.gameObject); 
 	}
 
-    void endDay()
-    {
+	void Start() {
+		dialoguescript = GameObject.FindGameObjectWithTag("Player").GetComponent<dialogueScript>(); 
+	}
+
+	void Update() {
+
+		if(dayStarted == false) {
+			day = day + 1; 
+			dayStarted = true; 
+		} else if(dayStarted == true) {
+			timeToStop -= Time.deltaTime;
+		}
+
+		if(timeToStop <= 0) {
+			Invoke("endDay", 0);
+		}
+	}
+
+	void endDay() {
  
-    }
+	}
 }
