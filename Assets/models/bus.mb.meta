@@ -40,6 +40,9 @@ ModelImporter:
     100064: pPlane3
     100066: pPlane4
     100068: pPlane5
+    100070: pPlane6
+    100072: pPlane7
+    100074: pPlane8
     400000: bus
     400002: //RootNode
     400004: busFloor
@@ -75,6 +78,9 @@ ModelImporter:
     400064: pPlane3
     400066: pPlane4
     400068: pPlane5
+    400070: pPlane6
+    400072: pPlane7
+    400074: pPlane8
     2300000: busFloor
     2300002: drivingWheel
     2300004: drivingWheelAxis
@@ -103,6 +109,9 @@ ModelImporter:
     2300050: pPlane3
     2300052: pPlane4
     2300054: pPlane5
+    2300056: pPlane6
+    2300058: pPlane7
+    2300060: pPlane8
     3300000: busFloor
     3300002: drivingWheel
     3300004: drivingWheelAxis
@@ -131,6 +140,9 @@ ModelImporter:
     3300050: pPlane3
     3300052: pPlane4
     3300054: pPlane5
+    3300056: pPlane6
+    3300058: pPlane7
+    3300060: pPlane8
     4300000: busFloor
     4300002: drivingWheel
     4300004: drivingWheelAxis
@@ -159,6 +171,9 @@ ModelImporter:
     4300050: pPlane3
     4300052: pPlane4
     4300054: pPlane5
+    4300056: pPlane6
+    4300058: pPlane7
+    4300060: pPlane8
     9500000: //RootNode
   materials:
     importMaterials: 1

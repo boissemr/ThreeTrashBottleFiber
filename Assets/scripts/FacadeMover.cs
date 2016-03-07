@@ -3,9 +3,27 @@ using System.Collections;
 
 public class FacadeMover : MonoBehaviour {
 
-	public float speed;
+	public float	speed,
+					timeToWaitAtStops;
+
+	float			stopTime;
 
 	void Update () {
-		transform.position += Vector3.back * speed * Time.deltaTime;
+
+		if(stopTime <= 0) {
+			transform.position += Vector3.back * speed * Time.deltaTime;
+		} else {
+			stopTime -= Time.deltaTime;
+		}
+	}
+
+	public void stop() {
+
+		stopTime = timeToWaitAtStops;
+	}
+
+	public void reset() {
+
+		transform.position = Vector3.zero;
 	}
 }
